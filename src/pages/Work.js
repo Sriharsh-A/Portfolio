@@ -1,59 +1,56 @@
 import React from 'react';
 import './Work.css';
 
-const Work = () => {
-  // 1. The Data: Easier to manage than hardcoding HTML
-  const workData = [
-    {
-      id: 1,
-      title: "E-Commerce Store",
-      desc: "A fully functional online shop built with React and Redux.",
-      tags: ["React", "Redux", "CSS"],
-      link: "#" // You would put your GitHub or live link here
-    },
-    {
-      id: 2,
-      title: "Social Media Dashboard",
-      desc: "An analytics dashboard with dark mode toggle.",
-      tags: ["React", "API", "Charts"],
-      link: "#"
-    },
-    {
-      id: 3,
-      title: "Weather App",
-      desc: "Real-time weather tracking using OpenWeather API.",
-      tags: ["Javascript", "API", "HTML"],
-      link: "#"
-    },
-    {
-      id: 4,
-      title: "Task Manager",
-      desc: "A productivity tool with drag-and-drop features.",
-      tags: ["React", "Firebase"],
-      link: "#"
-    },
-  ];
+const workData = [
+  {
+    id: 1,
+    title: "E-Commerce",
+    category: "React / Redux",
+    desc: "A fully functional shopping cart with payment integration and user authentication.",
+    link: "#"
+  },
+  {
+    id: 2,
+    title: "Dashboard",
+    category: "Analytics / API",
+    desc: "Real-time data visualization using Recharts, Node.js, and WebSocket connections.",
+    link: "#"
+  },
+  {
+    id: 3,
+    title: "Weather App",
+    category: "Real-time Data",
+    desc: "Live weather tracking with location services and 5-day forecasting.",
+    link: "#"
+  },
+  {
+    id: 4,
+    title: "Task Manager",
+    category: "Productivity",
+    desc: "Drag and drop task management with Firebase auth and cloud storage.",
+    link: "#"
+  },
+];
 
+const Work = () => {
   return (
-    <div className="work-container">
-      <h1 className="section-title">My Projects</h1>
+    <div className="work-main">
+      <h1 className="section-title">Projects</h1>
       
-      <div className="project-grid">
-        {/* 2. The Map: Loops through data to create cards */}
+      <div className="work-grid">
         {workData.map((project) => (
-          <div className="project-card" key={project.id}>
-            <div className="card-content">
-              <h3>{project.title}</h3>
-              <p>{project.desc}</p>
-              
-              <div className="tags">
-                {project.tags.map((tag, index) => (
-                  <span key={index} className="tag">{tag}</span>
-                ))}
-              </div>
-              
-              <a href={project.link} className="card-btn">View Project</a>
+          <div className="normal-card" key={project.id}>
+            
+            <div className="card-header">
+               <span>0{project.id}</span>
+               <span className="category">{project.category}</span>
             </div>
+            
+            <h3>{project.title}</h3>
+            <p>{project.desc}</p>
+            
+            <a href={project.link} className="card-link">View Project → </a>
+            
           </div>
         ))}
       </div>

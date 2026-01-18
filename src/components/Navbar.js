@@ -1,24 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import './Navbar.css'; // Assuming you have a CSS file for Navbar styles
 
 const Navbar = () => {
+  // Helper to scroll smoothly (optional fallback, but good practice)
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <nav style={styles.nav}>
-      <div className="logo">MY PORTFOLIO</div>
-      <ul style={styles.links}>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/work">Work</Link></li>
-        <li><Link to="/skills">Skills</Link></li>
-        <li><Link to="/photography">Photography</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
+    <nav className="navbar">
+      <div className="logo" onClick={() => scrollToSection('home')}>MY PORTFOLIO</div>
+      <ul className="nav-links">
+        {/* We use onClick to trigger scroll, or just href="#id" */}
+        <li><a href="#home">Home</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#photography">Photography</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   );
-};
-
-const styles = {
-  nav: { display: 'flex', justifyContent: 'space-between', padding: '20px', background: '#eee' },
-  links: { display: 'flex', listStyle: 'none', gap: '20px' }
 };
 
 export default Navbar;
