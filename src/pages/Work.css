@@ -71,7 +71,10 @@
   font-weight: bold;
   transition: color 0.3s;
 }
-.normal-card:hover .card-link { color: #dfff00; }
+.normal-card:hover { color: #dfff00; box-shadow: 10px 10px 50px rgba(223, 255, 0, 0.15);}
+.card-link:hover {
+  color:#dfff00
+}
 
 
 /* --- NEW MODAL STYLES (The Popup) --- */
@@ -186,7 +189,33 @@
 .view-project-btn:hover {
   color:#ffffff;
 }
+/* --- INSTAGRAM BUTTON (Top Right Corner) --- */
+.instagram-btn {
+  position: absolute;
+  top: 30px;
+  right: 80px; /* Positioned to the left of the close button */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text */
+  
+  color: #dfff00;
+  
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
 
+.instagram-btn:hover {
+  
+  color:#ffffff; /* Text turns black on hover */
+  
+}
 /* Simple Fade In Animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
