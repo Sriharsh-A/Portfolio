@@ -83,7 +83,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); 
+  background-color: rgba(0, 0, 0, 0.488); 
   z-index: 9999;
   display: flex;
   justify-content: center;
@@ -94,7 +94,7 @@
 }
 
 .xp-modal-content {
-  background-color: rgba(20, 20, 20, 0.95); 
+  background-color: rgba(0, 0, 0, 0.332);
   border: 1px solid rgba(223, 255, 0, 0.5);
   box-shadow: 0 0 40px rgba(223, 255, 0, 0.1);
   width: 700px;
@@ -146,20 +146,14 @@
   transition: border-color 0.3s;
 }
 
-.xp-img-wrapper:hover {
-  border-color: #dfff00;
-}
+
 
 .xp-proof-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures image covers the box without stretching */
   transition: transform 0.5s ease;
 }
 
-.xp-img-wrapper:hover .xp-proof-img {
-  transform: scale(1.1); /* Zoom effect on hover */
-}
 
 /* Button */
 .xp-view-btn {
@@ -183,4 +177,99 @@
 @keyframes xpFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* --- NEW STYLES FOR THE "SEE MORE" PAGE --- */
+
+/* 1. The See More Button */
+.xp-see-more-btn {
+  display: inline-block;
+  color: #dfff00;
+  border: 1px solid #dfff00;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.xp-see-more-btn:hover {
+  background-color: #dfff00;
+  color: black;
+  box-shadow: 0 0 20px rgba(223, 255, 0, 0.4);
+}
+
+/* 2. The Back Link */
+.back-link {
+  color: #888;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.back-link:hover { color: #dfff00; }
+
+/* --- Ensure these are at the bottom of Experience.css --- */
+
+/* 1. The Grid Container */
+.xp-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Responsive columns */
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+  padding-bottom: 50px;
+}
+
+/* 2. The Grid Card Overrides */
+.xp-grid-card {
+  margin-left: 0 !important;          /* No overlap */
+  transform: rotate(0deg) !important; /* No rotation */
+  width: 100% !important;             /* Fill the grid cell */
+  height: 400px;                      /* Uniform height */
+}
+
+/* 3. Hover Effect for Grid */
+.xp-grid-card:hover {
+  transform: translateY(-10px) !important; /* Simple lift */
+  z-index: 10;
+}
+/* --- MOBILE EXPERIENCE FIXES --- */
+@media (max-width: 768px) {
+  /* 1. Stack the deck vertically */
+  .experience-deck {
+    flex-direction: column; 
+    gap: 30px; /* Space between cards */
+    padding-top: 20px;
+  }
+
+  /* 2. Reset Card Styling for Stack */
+  .xp-card {
+    margin-left: 0; /* Remove the overlap */
+    transform: rotate(0deg); /* Remove the tilt */
+    width: 100%;
+    max-width: 340px; /* Ensure it fits narrow screens */
+    height: auto; /* Let content dictate height */
+    min-height: 400px;
+  }
+
+  /* 3. Simplify Hover Effects */
+  .xp-card:hover {
+    /* Don't lift too high or rotate on touch screens */
+    transform: translateY(-5px) scale(1.02); 
+    box-shadow: 0 10px 30px rgba(223, 255, 0, 0.1);
+  }
+
+  /* 4. Fix Modal Width on Mobile */
+  .xp-modal-content {
+    width: 90%;
+    padding: 20px;
+    max-height: 80vh;
+  }
+  
+  .xp-modal-content h2 {
+    font-size: 1.8rem;
+  }
 }

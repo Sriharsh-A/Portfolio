@@ -1,23 +1,32 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Experience.css';
-import { experienceData } from '../data/experienceData'; // Import Data
+import { experienceData } from '../data/experienceData'; 
 
-const Experience = () => {
+const AllExperience = () => {
   const [selectedExp, setSelectedExp] = useState(null);
 
-  // Get only the first 3 for the landing page
-  const previewData = experienceData.slice(0, 3);
+  // Scroll to top when page opens
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <div className="experience-main">
-      <h1 className="section-title">Experience</h1>
+    <div className="experience-main" style={{ minHeight: '100vh', height: 'auto', padding: '100px 50px', justifyContent: 'flex-start' }}>
       
-      {/* THE DECK (Only 3 items) */}
-      <div className="experience-deck">
-        {previewData.map((item) => (
+      {/* Back Button */}
+      <div style={{ width: '100%', maxWidth: '1200px', marginBottom: '40px' }}>
+        <Link to="/" className="back-link">&larr; Back to Home</Link>
+      </div>
+      
+      <h1 className="section-title">All Experience</h1>
+      
+      {/* GRID LAYOUT CONTAINER */}
+      <div className="xp-grid-container">
+        {experienceData.map((item) => (
           <div 
-            className="xp-card" 
+            // We add 'xp-grid-card' class to override the deck styling
+            className="xp-card xp-grid-card" 
             key={item.id} 
             onClick={() => setSelectedExp(item)}
           >
@@ -39,14 +48,7 @@ const Experience = () => {
         ))}
       </div>
 
-      {/* --- SEE MORE BUTTON --- */}
-      <div style={{ marginTop: '60px', textAlign: 'center', zIndex: 10 }}>
-        <Link to="/all-experience" className="xp-see-more-btn">
-          See All Experience &rarr;
-        </Link>
-      </div>
-
-      {/* MODAL (Kept exactly the same) */}
+      {/* REUSED MODAL LOGIC */}
       {selectedExp && (
         <div className="xp-modal-overlay" onClick={() => setSelectedExp(null)}>
           <div className="xp-modal-content" onClick={(e) => e.stopPropagation()}>
@@ -80,4 +82,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default AllExperience;

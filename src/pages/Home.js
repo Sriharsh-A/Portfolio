@@ -1,5 +1,6 @@
 import React from 'react';
 // REMOVE THIS LINE: import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
@@ -13,7 +14,22 @@ const Home = () => {
           <br /> 
           Specializing in React, UI/UX, and Photography.
         </p>
-
+        <div style={{ marginTop: '50px' }}>
+          <Link to="/warning" style={{
+            textDecoration: 'none',
+            color: '#333', // Dark grey (hard to see intentionally)
+            fontSize: '0.8rem',
+            border: '1px dashed #333',
+            padding: '10px 20px',
+            borderRadius: '5px',
+            transition: 'color 0.3s'
+          }}
+          onMouseOver={(e) => e.target.style.color = '#dfff00'}
+          onMouseOut={(e) => e.target.style.color = '#333'}
+          >
+            click here
+          </Link>
+        </div>
         
       </div>
     </div>

@@ -1,8 +1,7 @@
 import React from 'react';
-import './Navbar.css'; // Assuming you have a CSS file for Navbar styles
+import './Navbar.css';
 
 const Navbar = () => {
-  // Helper to scroll smoothly (optional fallback, but good practice)
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -12,9 +11,10 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="logo" onClick={() => scrollToSection('home')}>MY PORTFOLIO</div>
+      {/* "MY PORTFOLIO" replaced with "Home" */}
+      <div className="logo" onClick={() => scrollToSection('home')}>SRIHARSH</div>
+      
       <ul className="nav-links">
-        {/* We use onClick to trigger scroll, or just href="#id" */}
         <li><a href="#home">Home</a></li>
         <li><a href="#work">Projects</a></li>
         <li><a href="#experience">Experience</a></li>

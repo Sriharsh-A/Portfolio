@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './Work.css';
 
-// Instagram Icon
+// Instagram Icon Component
 const InstagramIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
@@ -14,7 +14,7 @@ const workData = [
   {
     id: 1,
     title: "CoLearn",
-    category: "Learning",
+    category: "Collaborative Learning",
     year: "Dec 2025 - Present",
     desc: "CoLearn is a collaborative learning platform where students can create unique rooms to study and build together. It supports collaborative coding with commit-based change tracking, shared study materials with real-time edits, and secure authentication.",
     tools: ["React"],
@@ -83,23 +83,36 @@ const Work = () => {
         <div className="modal-overlay" onClick={() => setSelectedProject(null)}>
           
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            
-
-            {/* 2. Instagram Button (Cleaner Code) */}
-            {selectedProject.instagram && (
-              <a 
-                href={selectedProject.instagram} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="instagram-btn"
-              >
-                <InstagramIcon /> 
-              </a>
-            )}
 
             <div className="modal-header">
-              <h2>{selectedProject.title}</h2>
+              {/* TITLE & ICON WRAPPER */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <h2>{selectedProject.title}</h2>
+                
+                {/* Instagram Icon - Only shows if link exists */}
+                {selectedProject.instagram && (
+                  <a 
+                    href={selectedProject.instagram} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="instagram-btn"
+                    style={{ 
+                      color: '#dfff00', 
+                      display: 'flex', 
+                      alignItems: 'center',
+                      transition: 'transform 0.2s'
+                    }}
+                    onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                    onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                  >
+                    <InstagramIcon /> 
+                  </a>
+                )}
+              </div>
+
               <span className="category-tag">{selectedProject.category}</span>
+              
+              <button className="xp-close-btn" onClick={() => setSelectedProject(null)}>×</button>
             </div>
 
             <p className="full-desc">{selectedProject.desc}</p>
@@ -114,30 +127,27 @@ const Work = () => {
             </div>
 
            <div className="modal-actions">
-                {/* CONDITIONAL RENDERING: Check if ID is 1 */}
-                {selectedProject.id === 1 ? (
-                  // Render "Currently Working" text for ID 1
-                  <span 
-                    className="view-project-btn" 
-                    style={{ 
-                      cursor: 'default', 
-                      opacity: 0.7,
-                      color: '#dfff00' 
-                    }}
-                  >
-                    Currently Working 
-                  </span>
-                ) : (
-                  // Render standard Link for everyone else
-                  <a 
-                    href={selectedProject.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="view-project-btn"
-                  >
-                    View Project &rarr;
-                  </a>
-                )}
+               {selectedProject.id === 1 ? (
+                 <span 
+                   className="view-project-btn" 
+                   style={{ 
+                     cursor: 'default', 
+                     opacity: 0.7,
+                     color: '#dfff00' 
+                   }}
+                 >
+                   Currently Working 
+                 </span>
+               ) : (
+                 <a 
+                   href={selectedProject.link} 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   className="view-project-btn"
+                 >
+                   View Project &rarr;
+                 </a>
+               )}
             </div>
 
           </div>

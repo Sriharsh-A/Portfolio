@@ -1,22 +1,26 @@
+/* --- GLOBAL RESET & SMOOTH SCROLL --- */
 html {
   scroll-behavior: smooth;
+  box-sizing: border-box; /* Helps with sizing logic */
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevents unwanted horizontal scrolling on mobile */
+  -webkit-font-smoothing: antialiased; /* Sharper text on Apple devices */
 }
 
 .App {
   text-align: center;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* --- HEADER SECTION --- */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,14 +28,63 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  
+  /* Responsive Font Size: clamps between 16px and a calculated viewport size */
+  font-size: calc(16px + 2vmin);
   color: white;
+  
+  /* Add padding so content doesn't touch screen edges on mobile */
+  padding: 20px;
 }
 
+/* --- LOGO RESPONSIVENESS --- */
+.App-logo {
+  /* Dynamic height: 40% of viewport min dimension, but capped */
+  height: 40vmin;
+  max-width: 100%; /* Ensures it never overflows screen width */
+  pointer-events: none;
+  transition: height 0.3s ease; /* Smooth resize if orientation changes */
+}
+
+/* Animation preferences */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+/* --- LINK STYLES --- */
 .App-link {
   color: #61dafb;
+  text-decoration: none;
+  
+  /* Increase touch target size for mobile users */
+  padding: 10px; 
+  display: inline-block;
 }
 
+/* --- DEVICE SPECIFIC BREAKPOINTS --- */
+
+/* 1. Mobile Devices (Portrait phones, less than 600px) */
+@media (max-width: 600px) {
+  .App-header {
+    font-size: calc(14px + 3vmin); /* Slightly larger base text for readability */
+    padding: 15px;
+  }
+  
+  .App-logo {
+    height: 35vmin; /* Smaller logo on phones to save space */
+  }
+}
+
+/* 2. Tablets (iPads, larger phones, 600px - 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .App-header {
+    padding: 30px;
+  }
+}
+
+/* Animation Keyframes */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

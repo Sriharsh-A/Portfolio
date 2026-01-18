@@ -14,7 +14,7 @@ const Contact = () => {
       </a>
 
       <div className="footer">
-        <p>© 2026 Your Name. Made with React.</p>
+        <p>© 2026 Sriharsh Akkala. Made with React.</p>
       </div>
     </div>
   );
