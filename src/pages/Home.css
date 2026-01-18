@@ -1,0 +1,97 @@
+/* 1. Main Container: Full height, Dark background, Centered content */
+.home-container {
+  height: 100vh; /* Takes up full screen height */
+  width: 100%;
+  background-color: #111; /* Matches your Photography page */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  color: white;
+  text-align: center;
+}
+
+/* 2. The Animation Keyframes */
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* Start slightly lower */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End in natural position */
+  }
+}
+
+/* 3. Typography Styles */
+.greeting {
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  color: #888;
+  margin-bottom: 10px;
+  /* Animation settings: */
+  opacity: 0;
+  animation: slideUpFade 0.8s ease forwards;
+  animation-delay: 0.2s; /* Wait 0.2s before starting */
+}
+
+.name {
+  font-size: 5rem;
+  font-weight: 900;
+  margin: 0;
+  /* Animation settings: */
+  opacity: 0;
+  animation: slideUpFade 0.8s ease forwards;
+  animation-delay: 0.4s; /* Wait 0.4s */
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #ccc;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 20px auto 40px auto;
+  /* Animation settings: */
+  opacity: 0;
+  animation: slideUpFade 0.8s ease forwards;
+  animation-delay: 0.6s;
+}
+
+/* 4. Buttons */
+.button-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  opacity: 0;
+  animation: slideUpFade 0.8s ease forwards;
+  animation-delay: 0.8s;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.btn-primary {
+  background-color: white;
+  color: #111;
+  border: 2px solid white;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background-color: white;
+  color: #111;
+}

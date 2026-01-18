@@ -1,0 +1,28 @@
+.photo-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #111;
+  overflow: hidden; /* Prevents scrollbars when images hit edges */
+  position: relative;
+  cursor: none; /* Hide default cursor for immersion */
+}
+
+.photo-title {
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  pointer-events: none; /* Let mouse pass through text */
+}
+
+.trail-image {
+  position: absolute;
+  width: 200px; /* Adjust size of your photos */
+  height: auto;
+  pointer-events: none; /* Crucial: mouse shouldn't interact with the trail */
+  animation: fadeOut 1s forwards; /* CSS animation for fading */
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.5); }
+}
