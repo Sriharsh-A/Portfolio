@@ -1,12 +1,22 @@
 import React, { useState, useRef } from 'react';
 import './Photography.css';
 
-// 1. DEFINE PHOTOS ARRAY (This was missing)
+import imgmonster from '../assets/monster.jpeg';
+import imgCC from '../assets/cc.jpg';
+import imgHS from '../assets/Hillscape.jpg';
+import imgdog from '../assets/dog.jpeg';
+import imglight from '../assets/light.jpeg';
+import imgmdsh from '../assets/mdsh.jpeg';
+import imgtrails from '../assets/trails.jpeg';
+
 const photos = [
-  "https://picsum.photos/id/101/200/300",
-  "https://picsum.photos/id/102/200/300",
-  "https://picsum.photos/id/103/200/300",
-  "https://picsum.photos/id/104/200/300",
+  // 2. USE THE IMPORTED VARIABLES (No quotes)
+  imgmonster,
+  imgCC,
+  imgHS,
+  imgdog,
+  imglight,
+  imgmdsh,
 ];
 
 const Photography = () => {

@@ -22,6 +22,7 @@ function App() {
           {/* ROUTE 1: Main Landing Page */}
           <Route path="/" element={
             <>
+            
               {/* Navbar and Sections go HERE, inside the element fragment */}
               <Navbar />
               

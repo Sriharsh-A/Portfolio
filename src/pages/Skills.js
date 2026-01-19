@@ -8,87 +8,80 @@ const Skills = () => {
 
   const allSkills = {
     technical: [
-      "React JS", "JavaScript", "HTML5", "CSS3", "Redux", "Node.js", 
-      "Git", "Firebase", "Python", "SQL", "REST API", "Tailwind"
+      "React JS", "JavaScript", "HTML5", "CSS3",
+      "Git", "Python", "SQL", "Java"
     ],
     creative: [
-      "UI/UX", "Photoshop", "Illustrator", "Figma", "Photography", 
-      "Video Editing", "Color Theory", "Typography", "Branding", "Lightroom"
+      "UI/UX", "Photoshop", "Figma", "Photography", 
+      "Video Editing", "Typography", "Branding", "Lightroom"
     ]
   };
 
-  // --- SMART SCATTER ALGORITHM ---
-  // This calculates positions ONCE when the category changes.
-  // It uses a "Grid" system to ensure skills don't overlap.
+  // --- SMART SCATTER ALGORITHM (Kept exactly the same) ---
   const positions = useMemo(() => {
     if (!activeCategory) return [];
-
     const skillsList = allSkills[activeCategory];
     const generatedPositions = [];
-    
-    // 1. Define a grid (e.g., 3 columns x 4 rows)
-    const cols = 4; 
+    const cols = 3; 
     const rows = 3;
-    
-    // 2. Calculate the size of each "cell" in the grid
-    // We use a safe area (80% of screen) so they don't touch edges
     const cellWidth = (window.innerWidth * 0.8) / cols;
     const cellHeight = (window.innerHeight * 0.8) / rows;
-
-    // 3. Create a list of all possible grid slots
     let slots = [];
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
         slots.push({ r, c });
       }
     }
-
-    // 4. Shuffle the slots so skills appear in random places, not linear
     slots = slots.sort(() => Math.random() - 0.5);
-
-    // 5. Assign each skill to a slot
     skillsList.forEach((skill, index) => {
-      const slot = slots[index] || slots[0]; // Fallback if we have more skills than slots
-      
-      // Calculate center of the cell
+      const slot = slots[index] || slots[0];
       const startX = (slot.c * cellWidth) - (window.innerWidth * 0.4) + (cellWidth / 2);
       const startY = (slot.r * cellHeight) - (window.innerHeight * 0.4) + (cellHeight / 2);
-
-      // Add a little "Jitter" (randomness) so it doesn't look like a perfect robot grid
       const jitterX = (Math.random() - 0.5) * (cellWidth * 0.4);
       const jitterY = (Math.random() - 0.5) * (cellHeight * 0.4);
-
       generatedPositions.push({
         id: index,
         x: startX + jitterX,
         y: startY + jitterY,
-        rotation: Math.random() * 20 - 10 // Slight tilt (-10deg to 10deg)
+        rotation: Math.random() * 20 - 10 
       });
     });
-
     return generatedPositions;
-  }, [activeCategory]); // Only recalculate when category changes
+  }, [activeCategory]);
 
   return (
+     
     <div className="skills-container">
+      {/* Background Grid Decoration */}
+      <div className="skills-bg-grid"></div>
       
       {/* 1. The Cards Wrapper */}
       <div className={`cards-wrapper ${activeCategory ? 'dimmed' : ''}`}>
+        
         <div 
           className="category-card technical" 
           onClick={() => setActiveCategory('technical')}
         >
-          <h2>Technical</h2>
-          <p>Click to scatter</p>
+          <div className="card-border-glow"></div>
+          <span className="card-index">01</span>
+          <h2>TECHNICAL</h2>
+          <div className="card-line"></div>
+          <p className="card-desc">// CODE & ARCHITECTURE</p>
+          <button className="card-btn">INITIALIZE &rarr;</button>
         </div>
 
         <div 
           className="category-card creative" 
           onClick={() => setActiveCategory('creative')}
         >
-          <h2>Creative</h2>
-          <p>Click to scatter</p>
+          <div className="card-border-glow"></div>
+          <span className="card-index">02</span>
+          <h2>CREATIVE</h2>
+          <div className="card-line"></div>
+          <p className="card-desc">// DESIGN & VISUALS</p>
+          <button className="card-btn">RENDER &rarr;</button>
         </div>
+
       </div>
 
       {/* 2. The Scatter Zone */}
@@ -96,40 +89,36 @@ const Skills = () => {
         <motion.div className="scatter-area" ref={constraintsRef}>
           
           <button className="close-btn" onClick={() => setActiveCategory(null)}>
-            Reset Gravity
+            &times; TERMINATE SESSION
           </button>
 
           {allSkills[activeCategory].map((skill, index) => {
              const pos = positions[index];
-             
              return (
               <motion.div 
                 key={index}
                 className="floating-skill"
-                
-                // Enable Dragging
                 drag 
                 dragConstraints={constraintsRef} 
                 dragElastic={0.2} 
-                
-                // Animation
                 initial={{ opacity: 0, scale: 0 }} 
                 animate={{ 
                   opacity: 1, 
                   scale: 1, 
                   x: pos.x, 
                   y: pos.y,
-                  rotate: pos.rotation, // Random tilt
-                  transition: { duration: 0.6, delay: index * 0.05, type: "spring" } // Staggered entrance
+                  rotate: pos.rotation,
+                  transition: { duration: 0.6, delay: index * 0.05, type: "spring" }
                 }}
-                
-                // Interaction
                 whileHover={{ scale: 1.1, cursor: "grab", zIndex: 100 }}
                 whileDrag={{ scale: 1.2, cursor: "grabbing", zIndex: 100 }}
               >
-                {skill}
+                <div className="skill-content">
+                  <span className="skill-dot"></span>
+                  {skill}
+                </div>
               </motion.div>
-            );
+             );
           })}
         </motion.div>
       )}

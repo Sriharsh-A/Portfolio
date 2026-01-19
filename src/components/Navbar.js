@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="logo" onClick={() => scrollToSection('home')}>SRIHARSH</div>
       
       <ul className="nav-links">
-        <li><a href="#home">Home</a></li>
+       
         <li><a href="#work">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>

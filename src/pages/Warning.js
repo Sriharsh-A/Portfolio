@@ -17,7 +17,7 @@ const Warning = () => {
       padding: '20px'
     }}>
       <h1 style={{ fontSize: '4rem', marginBottom: '20px', textTransform: 'uppercase' }}>
-        ⚠️ ACCESS DENIED
+        ACCESS DENIED
       </h1>
       
       <p style={{ fontSize: '1.5rem', color: 'white', marginBottom: '40px' }}>

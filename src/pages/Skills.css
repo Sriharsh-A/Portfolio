@@ -1,47 +1,141 @@
+/* --- 1. CONTAINER & BACKGROUND --- */
 .skills-container {
   height: 100vh;
-  background-color: #000000;
+  background-color: #050505;
   color: white;
   position: relative;
+ 
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  perspective: 1000px;
 }
 
-/* --- THE CARDS --- */
+/* Subtle Grid Background for Texture */
+.skills-bg-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 1;
+}
+.skills-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 80px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+/* --- 2. THE CATEGORY CARDS (Cyber-Industrial Style) --- */
 .cards-wrapper {
   display: flex;
-  gap: 50px;
+  gap: 60px;
   z-index: 10;
-  transition: opacity 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .cards-wrapper.dimmed {
-  opacity: 0.1;
+  opacity: 0; /* Fully hide when skills active */
   pointer-events: none;
+  transform: scale(0.9);
 }
 
 .category-card {
-  width: 250px;
-  height: 350px;
-  border: 2px solid white;
+  width: 300px;
+  height: 420px;
+  background: rgba(20, 20, 20, 0.6); /* Dark Glass */
+  backdrop-filter: blur(10px);
+  border: 1px solid #333;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
+/* Decoration inside card */
+.card-index {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-family: monospace;
+  color: #555;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.category-card h2 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: white;
+  letter-spacing: 2px;
+  z-index: 2;
+}
+
+.card-line {
+  width: 40px;
+  height: 2px;
+  background-color: #555;
+  margin: 20px 0;
+  transition: width 0.3s, background-color 0.3s;
+}
+
+.card-desc {
+  color: #888;
+  font-family: monospace;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.card-btn {
+  margin-top: 40px;
+  background: transparent;
+  border: 1px solid #555;
+  color: #888;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-family: monospace;
+  font-size: 0.8rem;
+  transition: all 0.3s;
+}
+
+/* --- HOVER EFFECTS --- */
 .category-card:hover {
-  background: white;
-  color: #111;
-  transform: scale(1.05);
+  transform: translateY(-10px);
+  border-color: #dfff00; /* NEON GREEN BORDER */
+  box-shadow: 0 0 30px rgba(223, 255, 0, 0.15);
 }
 
-/* --- THE SCATTERED SKILLS --- */
+.category-card:hover h2 {
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.category-card:hover .card-line {
+  width: 100px;
+  background-color: #dfff00;
+}
+
+.category-card:hover .card-btn {
+  background-color: #dfff00;
+  color: black;
+  border-color: #dfff00;
+  box-shadow: 0 0 15px #dfff00;
+}
+
+/* --- 3. THE FLOATING SKILLS (Tech Chips) --- */
 .scatter-area {
   position: absolute;
   top: 0;
@@ -49,40 +143,112 @@
   width: 100%;
   height: 100%;
   z-index: 20;
-  /* Flexbox centers the "origin" of the scatter in the middle of screen */
   display: flex; 
   justify-content: center;
   align-items: center;
 }
 
 .floating-skill {
-  position: absolute; /* Allows them to fly freely relative to center */
-  padding: 15px 30px;
-  background-color: white;
-  color: #111;
+  position: absolute; 
+  padding: 12px 25px;
+  
+  /* Dark Tech Style */
+  background: rgba(10, 10, 10, 0.9);
+  border: 1px solid #333;
+  color: #ccc;
+  
+  font-family: 'Courier New', monospace;
   font-weight: bold;
-  border-radius: 50px;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 15px rgba(255,255,255, 0.2);
-  user-select: none; /* Prevents text highlighting while dragging */
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  
+  backdrop-filter: blur(5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  cursor: grab;
+  
+  /* Cool "Cut Corner" shape */
+  clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
+  
+  /* Ensure Skills stay below the hover state of the button but above background */
+  z-index: 20; 
 }
 
-/* --- CLOSE BUTTON --- */
-.close-btn {
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px 30px;
-  background: transparent;
+.skill-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #555;
+  border-radius: 50%;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* HOVER STATE FOR SKILLS */
+.floating-skill:hover {
+  border-color: #dfff00;
   color: white;
-  border: 1px solid white;
+  box-shadow: 0 0 20px rgba(223, 255, 0, 0.2);
+  z-index: 100 !important;
+}
+
+.floating-skill:hover .skill-dot {
+  background-color: #dfff00;
+  box-shadow: 0 0 8px #dfff00;
+}
+
+/* --- 4. CLOSE BUTTON (The Fix) --- */
+/* Ensure this block is completely separate and valid */
+.close-btn {
+  position: absolute; /* CRITICAL: Forces it to float, not block flow */
+ 
+  
+  width: auto; /* CRITICAL: Prevents stretching */
+  padding: 10px 25px; 
+  border-radius: 20px;
+  background: black;
+  color: #dfff00;
+  border: 1px solid #dfff00;
+  font-family: monospace;
+  font-size: 0.9rem;
   cursor: pointer;
-  font-size: 1rem;
-  z-index: 30;
+
+  transition: all 0.3s;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  
 }
 
 .close-btn:hover {
-  background: white;
-  color: #111;
+  background: #dfff00;
+  color: black;
+  box-shadow: 0 0 20px #dfff00;
+}
+
+/* --- 5. MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+  .cards-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .category-card {
+    width: 280px;
+    height: 250px;
+  }
+  
+  .floating-skill {
+    font-size: 0.8rem;
+    padding: 10px 15px;
+  }
+
+  .close-btn {
+    bottom: 40px;
+    font-size: 0.8rem;
+    padding: 8px 15px;
+  }
 }
