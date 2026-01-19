@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useNavigate, Link } from 'react-router-dom'; // 1. Added Link import
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -27,20 +27,20 @@ const Navbar = () => {
         className="logo" 
         onClick={(e) => handleNavigation(e, 'home')}
       >
-        SRIHARSH
+        S.
       </div>
       
       <ul className="nav-links">
-        {/* 2. ADDED ABOUT LINK (Direct navigation) */}
-        
+        {/* 1. Link to separate About Page */}
+        <li><Link to="/about">About</Link></li>
 
-        {/* 3. SCROLL SECTIONS */}
+        {/* 2. Scroll to Sections */}
         <li><a href="/" onClick={(e) => handleNavigation(e, 'work')}>Projects</a></li>
         <li><a href="/" onClick={(e) => handleNavigation(e, 'experience')}>Experience</a></li>
         <li><a href="/" onClick={(e) => handleNavigation(e, 'skills')}>Skills</a></li>
         
-        
-        {/* REMOVED PHOTOGRAPHY */}
+        {/* 3. New Gallery Link */}
+        <li><a href="/" onClick={(e) => handleNavigation(e, 'gallery')}>Gallery</a></li>
 
         <li><a href="/" onClick={(e) => handleNavigation(e, 'contact')}>Contact</a></li>
       </ul>

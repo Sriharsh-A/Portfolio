@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'; // 1. Import useEffect
-// 2. Import useLocation
+import React, { useEffect } from 'react'; 
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
@@ -8,22 +7,20 @@ import Work from './pages/Work';
 import Experience from './pages/Experience';
 import AllExperience from './pages/AllExperience';
 import Skills from './pages/Skills';
+import Gallery from './pages/Gallery'; // 1. IMPORT GALLERY
 import Contact from './pages/Contact'; 
 import Warning from './pages/Warning';
 import About from './pages/About';
 import './App.css';
 
-// --- NEW COMPONENT: SCROLL HANDLER ---
-// This component listens for the "hidden" navigation state and scrolls to the section.
+// --- SCROLL HANDLER ---
 const ScrollHandler = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Check if the Navbar sent a targetId (e.g., "work", "skills") via state
     if (location.state && location.state.targetId) {
       const element = document.getElementById(location.state.targetId);
       if (element) {
-        // Slight delay ensures the DOM is ready before scrolling
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
         }, 100);
@@ -31,13 +28,12 @@ const ScrollHandler = () => {
     }
   }, [location]);
 
-  return null; // This component renders nothing visually
+  return null;
 };
 
 function App() {
   return (
     <Router>
-      {/* 3. ACTIVATE THE SCROLL HANDLER INSIDE THE ROUTER */}
       <ScrollHandler />
 
       <div className="app-container">
@@ -46,13 +42,16 @@ function App() {
           {/* ROUTE 1: Main Landing Page */}
           <Route path="/" element={
             <>
-              {/* Navbar and Sections */}
               <Navbar />
               
               <section id="home"><Home /></section>
               <section id="work"><Work /></section>
               <section id="experience"><Experience /></section>
               <section id="skills"><Skills /></section>
+              
+              {/* 2. ADD GALLERY SECTION HERE */}
+              <section id="gallery"><Gallery /></section>
+              
               <section id="contact"><Contact /></section>
             </>
           } />

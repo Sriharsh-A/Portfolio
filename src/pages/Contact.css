@@ -1,188 +1,200 @@
-/* --- CONTAINER & BACKGROUND --- */
-.contact-container {
-  min-height: 90vh; /* Slightly taller */
+/* --- SECTION CONTAINER --- */
+.contact-section {
   background-color: #050505;
-  color: white;
-  position: relative;
-  overflow: hidden; /* Keeps floating elements inside */
+  color: #fff;
+  padding: 80px 40px 40px 40px;
+  min-height: 60vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 100px 20px 50px;
   border-top: 1px solid #111;
-}
-
-/* Subtle Grid Background (Matches Skills page) */
-.contact-bg-grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Radial gradient to make the center pop */
-.contact-container::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle at center, transparent 0%, #050505 80%);
-  z-index: 2;
-  pointer-events: none;
-}
-
-.contact-content {
-  position: relative;
-  z-index: 10; /* Above background */
-  max-width: 800px;
-}
-
-/* --- TYPOGRAPHY --- */
-.contact-title {
-  font-size: 5rem;
-  line-height: 1;
-  margin-bottom: 30px;
-  font-weight: 900;
-  letter-spacing: -2px;
-  
-  /* Outline Text Effect */
-  color: transparent;
-  -webkit-text-stroke: 2px white;
-  text-transform: uppercase;
-}
-
-.contact-title .highlight {
-  /* Filled text for emphasis */
-  color: #dfff00;
-  -webkit-text-stroke: 0;
-  text-shadow: 0 0 20px rgba(223, 255, 0, 0.3);
-}
-
-.contact-text {
-  font-size: 1.2rem;
-  color: #888;
-  max-width: 600px;
-  margin: 0 auto 50px auto;
-  line-height: 1.6;
-}
-
-/* --- MAIN BUTTON --- */
-.main-email-btn {
-  display: inline-block;
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding: 20px 60px;
-  background-color: #dfff00; /* Neon background */
-  color: #050505; /* Black text */
-  text-decoration: none;
-  border-radius: 4px; /* Slightly squared corners suit the tech vibe better */
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 0 0 rgba(223, 255, 0, 0);
-  position: relative;
+  font-family: 'Inter', sans-serif;
   overflow: hidden;
 }
 
-.main-email-btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px -10px rgba(223, 255, 0, 0.8);
+.contact-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* --- SOCIAL ICONS --- */
-.social-links {
+/* --- MAIN SPLIT --- */
+.contact-main {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  /* Align items to the bottom so links and text sit on the same baseline visually */
+  align-items: flex-end; 
+  margin-bottom: 60px;
+  gap: 50px;
+}
+
+/* --- LEFT SIDE --- */
+.contact-left {
+  display: flex;
+  flex-direction: column;
   gap: 20px;
-  margin-top: 50px;
+  flex: 1;
+  max-width: 500px;
+  /* Ensure left side stays aligned top/left */
+  justify-content: flex-start;
+  align-self: flex-start; 
 }
 
-.social-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  border: 1px solid #333;
-  border-radius: 50%;
-  color: #888;
-  font-size: 1.2rem;
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.02); /* Subtle glass effect */
-  transition: all 0.3s ease;
-}
-
-.social-icon:hover {
-  border-color: #dfff00;
-  color: #dfff00;
-  background: rgba(223, 255, 0, 0.05);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(223, 255, 0, 0.2);
-}
-
-/* --- FOOTER --- */
-.footer {
+.contact-logo-mark {
   position: relative;
-  z-index: 10;
-  margin-top: auto; /* Pushes footer to bottom */
-  padding-top: 100px;
-  color: #444;
-  font-size: 0.8rem;
-  font-family: monospace;
-  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
-/* --- FLOATING DECORATION ORBS --- */
-.floating-orb {
+.logo-char {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+  background: linear-gradient(to bottom right, #fff, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-orb {
   position: absolute;
+  top: -5px;
+  right: -10px;
+  width: 15px;
+  height: 15px;
+  background: #dfff00;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.15;
-  z-index: 3;
-  pointer-events: none;
+  box-shadow: 0 0 15px #dfff00;
+  filter: blur(2px);
 }
 
-.orb-1 {
-  top: 20%;
-  left: 10%;
-  width: 300px;
-  height: 300px;
-  background-color: #dfff00;
-  animation: floatSlow 10s ease-in-out infinite alternate;
+.contact-msg {
+  font-size: 1.1rem;
+  color: #ccc;
+  line-height: 1.6;
 }
 
-.orb-2 {
-  bottom: 10%;
-  right: 10%;
-  width: 400px;
-  height: 400px;
-  background-color: #ffffff;
-  animation: floatSlow 15s ease-in-out infinite alternate-reverse;
+/* --- RIGHT SIDE --- */
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align everything to the right */
+  justify-content: center;
+  flex: 1;
 }
 
-@keyframes floatSlow {
-  from { transform: translate(0, 0); }
-  to { transform: translate(30px, -30px); }
+/* Navigation Links */
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 2.5rem; 
+  font-weight: 500;
+  line-height: 1.2; /* Better spacing between links */
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  opacity: 0.5;
+  position: relative;
 }
 
-/* --- MOBILE RESPONSIVENESS --- */
-@media (max-width: 640px) {
-  .contact-title {
-    font-size: 3rem;
+.footer-link:hover {
+  opacity: 1;
+  color: #dfff00;
+  transform: translateX(-5px);
+  text-shadow: 0 0 30px rgba(223, 255, 0, 0.3);
+}
+
+.footer-link::after {
+  content: '→'; /* Added arrow content back so it shows up */
+  font-size: 2rem;
+  position: absolute;
+  right: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: #dfff00;
+}
+
+.footer-link:hover::after {
+  opacity: 1;
+  right: -40px;
+}
+
+/* --- SOCIAL ROW (Now on Right) --- */
+.social-row {
+  display: flex;
+  gap: 25px; /* Slightly wider gap */
+  margin-top: 30px; /* Space between links and icons */
+  padding-top: 10px;
+  /* Optional: Add a top border to separate icons from links */
+  /* border-top: 1px solid #222; */
+}
+
+.icon-link {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.icon-link:hover {
+  opacity: 1;
+  color: #dfff00;
+  transform: translateY(-2px);
+}
+
+/* --- SEPARATOR --- */
+.contact-separator {
+  width: 100%;
+  height: 1px;
+  background-color: #222;
+  margin-bottom: 30px;
+}
+
+/* --- FOOTER META --- */
+.contact-footer-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.meta-info {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 0.85rem;
+  font-family: monospace;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .contact-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
   }
   
-  .main-email-btn {
-    padding: 15px 40px;
-    font-size: 1rem;
+  .contact-left {
+    align-self: flex-start;
+  }
+
+  .contact-right {
+    align-items: flex-start; /* Align left on mobile */
     width: 100%;
-    max-width: 300px;
+  }
+
+  .footer-link {
+    font-size: 3rem;
+  }
+
+  .footer-link:hover {
+    transform: translateX(10px);
+  }
+  
+  /* Reset social row for mobile */
+  .social-row {
+    margin-top: 40px;
+    justify-content: flex-start;
   }
 }

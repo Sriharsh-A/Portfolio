@@ -1,0 +1,120 @@
+/* --- MAIN PAGE LAYOUT --- */
+.gallery-split-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background-color: #050505;
+  overflow: hidden; /* No scrollbars for the whole page */
+}
+
+/* --- CENTER TITLE --- */
+.gallery-center-title {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50; /* Above everything */
+  font-size: 2.5rem;
+  letter-spacing: 5px;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 0 20px black;
+  pointer-events: none; /* Let clicks pass through */
+}
+
+/* --- INTERACTIVE ZONES --- */
+.gallery-zone {
+  flex: 1; /* Each takes 50% width */
+  position: relative;
+  height: 100%;
+  overflow: hidden; /* Keeps trails inside their zone */
+  cursor: crosshair; /* Indicates interactivity */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #222; /* Divider line */
+  transition: background 0.3s ease;
+}
+
+.gallery-zone:last-child {
+  border-right: none;
+}
+
+/* Subtle hover effect for the zone background */
+.gallery-zone:hover {
+  background-color: #0a0a0a;
+}
+
+/* --- LABELS --- */
+.zone-label {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #222; /* Dark initially */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  pointer-events: none;
+  transition: color 0.3s ease;
+  z-index: 10; /* Behind the trail images usually, or above if you prefer */
+}
+
+.zone-sub {
+  margin-top: 10px;
+  color: #444;
+  font-family: monospace;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+/* Light up label on hover */
+.gallery-zone:hover .zone-label {
+  color: #dfff00; /* Neon Yellow */
+  text-shadow: 0 0 30px rgba(223, 255, 0, 0.2);
+}
+
+.gallery-zone:hover .zone-sub {
+  color: #888;
+}
+
+/* --- TRAIL IMAGES --- */
+.trail-img {
+  position: absolute;
+  /* 1. REDUCED SIZE (was 250px) */
+  width: 180px; 
+  height: auto;
+  border-radius: 8px;
+  pointer-events: none; /* CRITICAL: Allows mousemove to keep working */
+  z-index: 20; /* Above text */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  
+  /* 2. SLOWER SPEED (was 0.4s) */
+  /* Increased duration to 0.8s for a slower pop-in feel */
+  animation: popIn 0.8s ease-out forwards;
+}
+
+@keyframes popIn {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+  .gallery-split-page {
+    flex-direction: column; /* Stack top/bottom */
+  }
+
+  .gallery-center-title {
+    font-size: 1.5rem;
+    top: 15px;
+  }
+
+  .zone-label {
+    font-size: 2rem;
+  }
+  
+  .trail-img {
+    /* Kept mobile size small so it doesn't overwhelm phone screens */
+    width: 120px; 
+  }
+}

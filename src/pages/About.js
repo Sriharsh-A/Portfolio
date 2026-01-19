@@ -73,10 +73,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* SECTION 2: PHOTOGRAPHY */}
-        <div className="about-photography-wrapper">
-           <Photography />
-        </div>
+        
 
       </div>
     </>

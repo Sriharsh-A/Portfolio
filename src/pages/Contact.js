@@ -1,49 +1,85 @@
-import React from 'react';
-import { FaLinkedinIn, FaGithub, FaTwitter } from 'react-icons/fa'; // Import icons
+import React, { useState, useEffect } from 'react';
+import { FaLinkedinIn, FaEnvelope, FaGithub, FaInstagram } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import './Contact.css';
 
 const Contact = () => {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const formattedTime = time.toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  });
+
   return (
-    <div className="contact-container" id="contact">
-      {/* --- Background Decor --- */}
-      <div className="contact-bg-grid"></div>
-      <div className="floating-orb orb-1"></div>
-      <div className="floating-orb orb-2"></div>
-
-      <div className="contact-content">
-        {/* Main Title with Outline Effect */}
-        <h1 className="contact-title">
-          LET'S BUILD <br />
-          <span className="highlight">THE FUTURE</span>
-        </h1>
+    <div className="contact-section" id="contact">
+      <div className="contact-wrapper">
         
-        <p className="contact-text">
-          Have a project in mind or just want to chat tech? 
-          <br />I'm currently open to new opportunities and collaborations.
-        </p>
-        
-        {/* Main Call to Action */}
-        <a href="mailto:your.email@example.com" className="main-email-btn">
-          SHARE YOUR IDEAS &rarr;
-        </a>
+        {/* --- MAIN SPLIT CONTENT --- */}
+        <div className="contact-main">
+          
+          {/* LEFT SIDE: Identity & Message Only */}
+          <div className="contact-left">
+            <div className="contact-logo-mark">
+              <span className="logo-char">S.</span>
+              
+            </div>
 
-        {/* Social Links Row */}
-        <div className="social-links">
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-            <FaLinkedinIn />
-          </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-            <FaGithub />
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-            <FaTwitter />
-          </a>
+            <p className="contact-msg">
+              Found anything interesting? Or just want to say hi? <br />
+              Hit me up! 
+            </p>
+          </div>
+
+          {/* RIGHT SIDE: Navigation Links AND Social Icons */}
+          <div className="contact-right">
+            
+            {/* Navigation */}
+           
+
+            {/* Social Icons (Moved Here) */}
+            <div className="social-row">
+              <a href="https://github.com/Sriharsh-A" target="_blank" rel="noreferrer" className="icon-link">
+                <FaGithub />
+              </a>
+              
+              <a href="https://instagram.com/harshgotskills_" target="_blank" rel="noreferrer" className="icon-link">
+                <FaInstagram />
+              </a>
+
+              <a href="mailto:sriharshakkala@gmail.com" className="icon-link">
+                <FaEnvelope />
+              </a>
+
+              <a href="https://www.linkedin.com/in/sriharsh-akkala-70b0472b5/" target="_blank" rel="noreferrer" className="icon-link">
+                <FaLinkedinIn />
+              </a>
+            </div>
+
+          </div>
         </div>
 
-      </div>
+        {/* --- DIVIDER --- */}
+        <div className="contact-separator"></div>
 
-      <div className="footer">
-        <p>© {new Date().getFullYear()} SRIHARSH AKKALA. // CODED WITH REACT.</p>
+        {/* --- FOOTER META --- */}
+        <div className="contact-footer-meta">
+          <div className="meta-info">
+            <div className="location-time">
+              <span className="pin">📍</span> HYDERABAD, {formattedTime} IST
+            </div>
+            <div className="version-tag">
+              Built using React
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );
