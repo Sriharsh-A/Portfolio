@@ -168,10 +168,25 @@
  color: white;
 }
 
-@media (max-width: 768px) {
-  .experience-deck { flex-direction: column; gap: 20px; }
-  .xp-card { width: 100%; max-width: 350px; margin-left: 0; transform: rotate(0deg); height: auto; min-height: 300px; }
-  .xp-card:hover { transform: translateY(-10px); }
+@media (max-width: 640px) {
+  .experience-deck {
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 40px;
+    gap: 25px;
+  }
+  .xp-card {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100%;
+    max-width: 100%; /* Allow full width on small phones */
+    margin: 0;
+  }
+  .xp-card:hover {
+    transform: scale(1.02) !important;
+  }
 }
 
 @keyframes xpFadeIn {

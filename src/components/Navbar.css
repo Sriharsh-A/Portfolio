@@ -68,35 +68,48 @@
 
 .nav-links a:hover {
   color: #dfff00; 
-  text-shadow: 0 0 15px rgba(223, 255, 0, 0.5);
+  text-shadow: 0 0px 20px rgb(221, 255, 0);
   transform: translateY(-2px); /* Subtle lift on hover */
 }
 
 /* Mobile Adjustment */
-@media (max-width: 850px) {
+@media (max-width: 640px) {
   .navbar {
-    min-width: 90%;
-    padding: 15px 25px;
+    min-width: unset;
+    width: 92%; /* Slightly wider on small screens */
     top: 15px;
+    padding: 12px 15px;
+    border-radius: 15px;
+    flex-direction: column;
+    gap: 12px;
   }
   
   .logo {
-    margin-right: 0;
     font-size: 1.1rem;
+    margin: 0;
   }
 
   .nav-links {
-    gap: 20px; /* Tighter on mobile */
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+    gap: 15px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-  
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
   .nav-links a {
-    font-size: 0.75rem;
-    letter-spacing: 0.5px;
+    font-size: 0.8rem;
   }
 }
 
 /* --- MOBILE NAVBAR FIXES --- */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .navbar {
     /* 1. Stop forcing 650px width */
     min-width: unset; 

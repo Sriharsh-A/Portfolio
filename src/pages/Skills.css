@@ -230,20 +230,28 @@
 }
 
 /* --- 5. MOBILE RESPONSIVENESS --- */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .cards-wrapper {
     flex-direction: column;
-    gap: 30px;
+    gap: 25px;
+    margin-top: 40px;
   }
   
   .category-card {
-    width: 280px;
-    height: 250px;
+    width: 100%;       /* Use full width of container */
+    max-width: 300px;  /* Cap it so it doesn't look weird */
+    height: 240px;
   }
   
+  .skills-title {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    top: auto;
+  }
+
   .floating-skill {
-    font-size: 0.8rem;
-    padding: 10px 15px;
+    font-size: 0.75rem; 
+    padding: 8px 12px;
   }
 
   .close-btn {

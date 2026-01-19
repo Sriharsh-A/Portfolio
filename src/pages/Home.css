@@ -95,3 +95,22 @@
   background-color: #dfff00;
   color: #000000;
 }
+
+@media (max-width: 640px) {
+  .hero-content {
+    padding: 0 15px;
+  }
+
+  .greeting {
+    font-size: 0.9rem;
+  }
+
+  .name {
+    font-size: 2.8rem; /* Fits 640px better */
+    line-height: 1.1;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+}

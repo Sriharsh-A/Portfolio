@@ -66,12 +66,22 @@ body {
 /* --- DEVICE SPECIFIC BREAKPOINTS --- */
 
 /* 1. Mobile Devices (Portrait phones, less than 600px) */
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
   .App-header {
     font-size: calc(14px + 3vmin); /* Slightly larger base text for readability */
     padding: 15px;
   }
-  
+  section {
+    padding: 50px 15px; /* Tighter padding for small phones */
+    min-height: auto;
+  }
+  h1 { font-size: 2.2rem !important; }
+  h2 { font-size: 1.8rem !important; }
+  p { font-size: 0.95rem !important; }
   .App-logo {
     height: 35vmin; /* Smaller logo on phones to save space */
   }

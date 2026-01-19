@@ -1,5 +1,4 @@
 import React from 'react';
-// REMOVE THIS LINE: import { Link } from 'react-router-dom'; 
 import { Link } from 'react-router-dom';
 import './Home.css';
 
@@ -14,20 +13,34 @@ const Home = () => {
           <br /> 
           Specializing in React, UI/UX, and Photography.
         </p>
-        <div style={{ marginTop: '50px' }}>
-          <Link to="/warning" style={{
+
+        {/* NEW "LEARN MORE" BUTTON */}
+        <div style={{ marginTop: '40px' }}>
+          <Link to="/about" style={{
             textDecoration: 'none',
-            color: '#333', // Dark grey (hard to see intentionally)
-            fontSize: '0.8rem',
-            border: '1px dashed #333',
-            padding: '10px 20px',
-            borderRadius: '5px',
-            transition: 'color 0.3s'
+            color: '#dfff00',              // Neon Text
+            border: '1px solid #dfff00',   // Neon Border
+            padding: '12px 30px',
+            borderRadius: '50px',          // Pill Shape
+            fontSize: '0.9rem',
+            letterSpacing: '2px',
+            textTransform: 'uppercase',
+            fontWeight: 'bold',
+            transition: 'all 0.3s ease',
+            display: 'inline-block'
           }}
-          onMouseOver={(e) => e.target.style.color = '#dfff00'}
-          onMouseOut={(e) => e.target.style.color = '#333'}
+          onMouseOver={(e) => {
+            e.target.style.backgroundColor = '#dfff00';
+            e.target.style.color = 'black';
+            e.target.style.boxShadow = '0 0 20px #dfff00'; // Glow effect
+          }}
+          onMouseOut={(e) => {
+            e.target.style.backgroundColor = 'transparent';
+            e.target.style.color = '#dfff00';
+            e.target.style.boxShadow = 'none';
+          }}
           >
-            click here
+            Learn More About Me
           </Link>
         </div>
         

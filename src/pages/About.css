@@ -1,23 +1,64 @@
-.about-page {
+/* --- PAGE LAYOUT (Updated for Scrolling) --- */
+/* ... existing .about-scroll-layout ... */
+
+/* --- BACK BUTTON STYLING --- */
+.back-button-container {
+  width: 100%;
+  max-width: 1100px; /* Matches your main container width */
+  padding: 0 20px;   /* Matches container padding */
+  margin-bottom: 20px; /* Space between button and content */
+}
+
+.back-link {
+  display: inline-block;
+  color: #666;
+  text-decoration: none;
+  font-family: monospace;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border-radius: 20px; /* Rounded pill shape */
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  
+  color: #dfff00;
+  transform: translateX(-5px); /* Subtle slide animation */
+}
+
+/* ... rest of your CSS ... */
+.about-scroll-layout {
   background-color: #050505;
   min-height: 100vh;
+  padding-top: 120px; /* Clear Navbar */
+  padding-bottom: 50px;
+  /* Allow natural scrolling flow */
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 100px 50px 50px 50px; /* Top padding clears Navbar */
-  color: white;
 }
 
 .about-container {
-  display: flex;
-  max-width: 1200px;
+  max-width: 1100px;
   width: 100%;
-  gap: 80px;
+  display: flex;
   align-items: center;
+  gap: 80px;
+  padding: 0 20px;
+  /* Margin bottom separates Bio from Photography */
+  margin-bottom: 150px; 
+}
+
+/* --- WRAPPER FOR PHOTOGRAPHY --- */
+.about-photography-wrapper {
+  width: 100%;
+  /* Optional: Add a divider or background change here if you want */
+  border-top: 1px solid #111;
 }
 
 /* --- LEFT: IMAGE STYLING --- */
-.about-image-section {
+.about-image-wrapper {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -25,11 +66,10 @@
 
 .image-frame {
   position: relative;
-  width: 400px;
-  height: 500px;
-  border-radius: 20px;
-  overflow: hidden;
+  width: 380px;
+  height: 480px;
   border: 1px solid #333;
+  padding: 15px;
   transition: transform 0.3s ease;
 }
 
@@ -38,117 +78,114 @@
   height: 100%;
   object-fit: cover;
   filter: grayscale(100%);
-  transition: filter 0.5s ease, transform 0.5s ease;
+  transition: all 0.5s ease;
 }
 
-/* Hover Effects */
+/* Corner Decorations */
+.corner-decor {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #dfff00;
+  transition: all 0.3s ease;
+}
+
+.top-left { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.bottom-right { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+/* HOVER EFFECTS */
 .image-frame:hover {
   transform: translateY(-10px);
-  border-color: #dfff00;
-  box-shadow: 0 0 30px rgba(223, 255, 0, 0.2);
+  border-color: #555;
 }
 
 .image-frame:hover img {
   filter: grayscale(0%);
-  transform: scale(1.05);
 }
 
-/* --- RIGHT: TEXT STYLING --- */
-.about-text-section {
-  flex: 1;
+.image-frame:hover .corner-decor {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+/* --- RIGHT: TEXT CONTENT --- */
+.about-content {
+  flex: 1.2;
 }
 
 .about-title {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 900;
   margin-bottom: 10px;
+  line-height: 1;
   letter-spacing: 2px;
+  color: white;
 }
 
-.about-title .highlight {
-  color: #dfff00;
-}
+.highlight { color: #dfff00; }
 
-.about-subtitle {
-  font-size: 1.5rem;
-  color: #888;
-  margin-bottom: 30px;
-  font-weight: 400;
+.about-role {
   font-family: monospace;
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
 }
 
-.about-bio {
-  font-size: 1.1rem;
-  line-height: 1.8;
+.about-bio p {
+  font-size: 1.05rem;
+  line-height: 1.7;
   color: #ccc;
   margin-bottom: 20px;
 }
 
-.about-bio strong {
-  color: white;
-  font-weight: 600;
-}
+.about-bio strong { color: white; }
 
-/* Stats Row */
-.about-stats {
-  display: flex;
-  gap: 40px;
-  margin: 40px 0;
-  border-top: 1px solid #333;
-  padding-top: 30px;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #dfff00;
-}
-
-.stat-label {
-  font-size: 0.9rem;
-  color: #888;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Resume Button */
-.resume-btn {
+/* --- BUTTON --- */
+.btn-resume {
   padding: 15px 40px;
   background: transparent;
   color: #dfff00;
   border: 1px solid #dfff00;
+  font-family: monospace;
   font-size: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
 }
 
-.resume-btn:hover {
+.btn-resume:hover {
   background: #dfff00;
   color: black;
   box-shadow: 0 0 20px #dfff00;
 }
 
-/* --- MOBILE RESPONSIVENESS --- */
-@media (max-width: 900px) {
+/* --- MOBILE RESPONSIVENESS (640px) --- */
+@media (max-width: 640px) {
+  .about-scroll-layout {
+    padding-top: 100px;
+  }
+
   .about-container {
     flex-direction: column;
-    text-align: center;
-    gap: 50px;
+    gap: 40px;
+    margin-bottom: 80px; /* Less gap on mobile */
   }
 
   .image-frame {
-    width: 300px;
+    width: 280px;
     height: 350px;
   }
 
-  .about-stats {
-    justify-content: center;
+  .about-content {
+    text-align: center;
+  }
+
+  .about-title {
+    font-size: 2.5rem;
+  }
+  
+  .about-role {
+    font-size: 0.9rem;
   }
 }
