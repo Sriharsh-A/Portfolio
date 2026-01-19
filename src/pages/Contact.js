@@ -72,7 +72,7 @@ const Contact = () => {
         <div className="contact-footer-meta">
           <div className="meta-info">
             <div className="location-time">
-              <span className="pin">📍</span> HYDERABAD, {formattedTime} IST
+              <span className="pin"></span> HYDERABAD, {formattedTime} IST
             </div>
             <div className="version-tag">
               Built using React

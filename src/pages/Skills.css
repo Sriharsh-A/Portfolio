@@ -1,10 +1,9 @@
 /* --- 1. CONTAINER & BACKGROUND --- */
 .skills-container {
   height: 100vh;
-  background-color: #050505;
+  background-color: #000000; /* Plain Dark Background */
   color: white;
   position: relative;
- 
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -12,20 +11,11 @@
   perspective: 1000px;
 }
 
-/* Subtle Grid Background for Texture */
+/* REMOVED THE GRID TEXTURE */
 .skills-bg-grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  pointer-events: none;
-  z-index: 1;
+  display: none; 
 }
+
 .skills-title {
   text-align: center;
   font-size: 3rem;
@@ -34,6 +24,7 @@
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
 /* --- 2. THE CATEGORY CARDS (Cyber-Industrial Style) --- */
 .cards-wrapper {
   display: flex;
@@ -201,13 +192,10 @@
   box-shadow: 0 0 8px #dfff00;
 }
 
-/* --- 4. CLOSE BUTTON (The Fix) --- */
-/* Ensure this block is completely separate and valid */
+/* --- 4. CLOSE BUTTON --- */
 .close-btn {
-  position: absolute; /* CRITICAL: Forces it to float, not block flow */
- 
-  
-  width: auto; /* CRITICAL: Prevents stretching */
+  position: absolute; 
+  width: auto; 
   padding: 10px 25px; 
   border-radius: 20px;
   background: black;
@@ -216,11 +204,9 @@
   font-family: monospace;
   font-size: 0.9rem;
   cursor: pointer;
-
   transition: all 0.3s;
   letter-spacing: 2px;
   text-transform: uppercase;
-  
 }
 
 .close-btn:hover {
@@ -238,8 +224,8 @@
   }
   
   .category-card {
-    width: 100%;       /* Use full width of container */
-    max-width: 300px;  /* Cap it so it doesn't look weird */
+    width: 100%; 
+    max-width: 300px; 
     height: 240px;
   }
   
