@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom';
 import './Experience.css';
-import { experienceData } from '../data/experienceData'; // Import Data
+import { experienceData } from '../data/experienceData';
 
 const Experience = () => {
   const [selectedExp, setSelectedExp] = useState(null);
 
-  // Get only the first 3 for the landing page
   const previewData = experienceData.slice(0, 3);
 
   return (
     <div className="experience-main">
       <h1 className="section-title">Experience</h1>
       
-      {/* THE DECK (Only 3 items) */}
       <div className="experience-deck">
         {previewData.map((item) => (
           <div 
@@ -39,14 +37,12 @@ const Experience = () => {
         ))}
       </div>
 
-      {/* --- SEE MORE BUTTON --- */}
       <div style={{ marginTop: '60px', textAlign: 'center', zIndex: 10 }}>
         <Link to="/all-experience" className="xp-see-more-btn">
           See All Experience &rarr;
         </Link>
       </div>
 
-      {/* MODAL (Kept exactly the same) */}
       {selectedExp && (
         <div className="xp-modal-overlay" onClick={() => setSelectedExp(null)}>
           <div className="xp-modal-content" onClick={(e) => e.stopPropagation()}>
@@ -68,7 +64,12 @@ const Experience = () => {
             <p className="xp-full-desc">{selectedExp.description}</p>
             {selectedExp.link && (
               <div className="xp-modal-actions">
-                <a href={selectedExp.link} target="_blank" rel="noopener noreferrer" className="xp-view-btn">
+                <a
+                  href={selectedExp.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="xp-view-btn"
+                >
                   View Work &rarr;
                 </a>
               </div>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { FaLinkedinIn, FaEnvelope, FaGithub, FaInstagram } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import './Contact.css';
 
 const Contact = () => {
@@ -21,10 +20,8 @@ const Contact = () => {
     <div className="contact-section" id="contact">
       <div className="contact-wrapper">
         
-        {/* --- MAIN SPLIT CONTENT --- */}
         <div className="contact-main">
           
-          {/* LEFT SIDE: Identity & Message Only */}
           <div className="contact-left">
             <div className="contact-logo-mark">
               <span className="logo-char">S.</span>
@@ -37,13 +34,8 @@ const Contact = () => {
             </p>
           </div>
 
-          {/* RIGHT SIDE: Navigation Links AND Social Icons */}
           <div className="contact-right">
             
-            {/* Navigation */}
-           
-
-            {/* Social Icons (Moved Here) */}
             <div className="social-row">
               <a href="https://github.com/Sriharsh-A" target="_blank" rel="noreferrer" className="icon-link">
                 <FaGithub />
@@ -65,10 +57,8 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* --- DIVIDER --- */}
         <div className="contact-separator"></div>
 
-        {/* --- FOOTER META --- */}
         <div className="contact-footer-meta">
           <div className="meta-info">
             <div className="location-time">

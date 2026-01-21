@@ -2,24 +2,24 @@ import React, { useState, useRef, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import './Skills.css';
 
+const allSkills = {
+  technical: [
+    "React JS", "JavaScript", "HTML5", "CSS3",
+    "Git", "Python", "SQL", "Java"
+  ],
+  creative: [
+    "UI/UX", "Photoshop", "Figma", "Photography", 
+    "Video Editing", "Typography", "Branding", "Lightroom"
+  ]
+};
+
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState(null);
   const constraintsRef = useRef(null);
 
-  const allSkills = {
-    technical: [
-      "React JS", "JavaScript", "HTML5", "CSS3",
-      "Git", "Python", "SQL", "Java"
-    ],
-    creative: [
-      "UI/UX", "Photoshop", "Figma", "Photography", 
-      "Video Editing", "Typography", "Branding", "Lightroom"
-    ]
-  };
-
-  // --- SMART SCATTER ALGORITHM (Kept exactly the same) ---
   const positions = useMemo(() => {
     if (!activeCategory) return [];
+    
     const skillsList = allSkills[activeCategory];
     const generatedPositions = [];
     const cols = 3; 
@@ -33,6 +33,7 @@ const Skills = () => {
       }
     }
     slots = slots.sort(() => Math.random() - 0.5);
+    
     skillsList.forEach((skill, index) => {
       const slot = slots[index] || slots[0];
       const startX = (slot.c * cellWidth) - (window.innerWidth * 0.4) + (cellWidth / 2);
@@ -50,14 +51,10 @@ const Skills = () => {
   }, [activeCategory]);
 
   return (
-     
     <div className="skills-container">
-      {/* Background Grid Decoration */}
       <div className="skills-bg-grid"></div>
       
-      {/* 1. The Cards Wrapper */}
       <div className={`cards-wrapper ${activeCategory ? 'dimmed' : ''}`}>
-        
         <div 
           className="category-card technical" 
           onClick={() => setActiveCategory('technical')}
@@ -66,7 +63,7 @@ const Skills = () => {
           <span className="card-index">01</span>
           <h2>TECHNICAL</h2>
           <div className="card-line"></div>
-          <p className="card-desc">// CODE & ARCHITECTURE</p>
+          <p className="card-desc">CODE & ARCHITECTURE</p>
           <button className="card-btn">INITIALIZE &rarr;</button>
         </div>
 
@@ -78,23 +75,20 @@ const Skills = () => {
           <span className="card-index">02</span>
           <h2>CREATIVE</h2>
           <div className="card-line"></div>
-          <p className="card-desc">// DESIGN & VISUALS</p>
+          <p className="card-desc">DESIGN & VISUALS</p>
           <button className="card-btn">RENDER &rarr;</button>
         </div>
-
       </div>
 
-      {/* 2. The Scatter Zone */}
       {activeCategory && (
         <motion.div className="scatter-area" ref={constraintsRef}>
-          
           <button className="close-btn" onClick={() => setActiveCategory(null)}>
             &times; TERMINATE SESSION
           </button>
 
           {allSkills[activeCategory].map((skill, index) => {
-             const pos = positions[index];
-             return (
+            const pos = positions[index];
+            return (
               <motion.div 
                 key={index}
                 className="floating-skill"
@@ -118,7 +112,7 @@ const Skills = () => {
                   {skill}
                 </div>
               </motion.div>
-             );
+            );
           })}
         </motion.div>
       )}

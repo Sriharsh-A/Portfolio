@@ -1,47 +1,42 @@
-/* 1. Main Container: Full height, Dark background, Centered content */
 .home-container {
-  height: 100vh; /* Takes up full screen height */
+  height: 100vh;
   width: 100%;
-  background-color: #000000; /* Matches your Photography page */
+  background-color: #000000;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center;     /* Center vertically */
+  justify-content: center;
+  align-items: center;
   color: #dfff00;
   text-align: center;
 }
 
-/* 2. The Animation Keyframes */
 @keyframes slideUpFade {
   0% {
     opacity: 0;
-    transform: translateY(30px); /* Start slightly lower */
+    transform: translateY(30px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0); /* End in natural position */
+    transform: translateY(0);
   }
 }
 
-/* 3. Typography Styles */
 .greeting {
   font-size: 1.2rem;
   letter-spacing: 3px;
   color: #888;
   margin-bottom: 10px;
-  /* Animation settings: */
   opacity: 0;
   animation: slideUpFade 0.8s ease forwards;
-  animation-delay: 0.2s; /* Wait 0.2s before starting */
+  animation-delay: 0.2s;
 }
 
 .name {
   font-size: 5rem;
   font-weight: 900;
   margin: 0;
-  /* Animation settings: */
   opacity: 0;
   animation: slideUpFade 0.8s ease forwards;
-  animation-delay: 0.4s; /* Wait 0.4s */
+  animation-delay: 0.4s;
 }
 
 .description {
@@ -50,13 +45,11 @@
   line-height: 1.6;
   max-width: 600px;
   margin: 20px auto 40px auto;
-  /* Animation settings: */
   opacity: 0;
   animation: slideUpFade 0.8s ease forwards;
   animation-delay: 0.6s;
 }
 
-/* 4. Buttons */
 .button-group {
   display: flex;
   gap: 20px;
@@ -71,7 +64,7 @@
   padding: 15px 30px;
   border-radius: 5px;
   font-weight: bold;
-  transition: all 0.3s ease; /* Smooth hover effect */
+  transition: all 0.3s ease;
 }
 
 .btn-primary {
@@ -83,14 +76,14 @@
 .btn-primary:hover {
   background-color: transparent;
   color: white;
-}   
+}
 
 .btn-secondary {
   background-color: transparent;
   color: white;
   border: 2px solid #dfff00;
 }
-    
+
 .btn-secondary:hover {
   background-color: #dfff00;
   color: #000000;
@@ -106,7 +99,7 @@
   }
 
   .name {
-    font-size: 2.8rem; /* Fits 640px better */
+    font-size: 2.8rem;
     line-height: 1.1;
   }
 

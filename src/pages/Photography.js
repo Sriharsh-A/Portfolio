@@ -10,23 +10,21 @@ import imgmdsh from '../assets/mdsh.jpeg';
 import imgtrails from '../assets/trails.jpeg';
 
 const photos = [
-  // 2. USE THE IMPORTED VARIABLES (No quotes)
   imgmonster,
   imgCC,
   imgHS,
   imgdog,
   imglight,
   imgmdsh,
+  imgtrails,
 ];
 
 const Photography = () => {
-  // 2. DEFINE STATE AND REFS (This was missing)
   const [trail, setTrail] = useState([]);
   const lastPosition = useRef({ x: 0, y: 0 }); 
   const imageIndex = useRef(0);
 
   const handleMouseMove = (e) => {
-    // Use offsetX for relative position in the container
     const { offsetX, offsetY } = e.nativeEvent; 
     
     const distance = Math.hypot(

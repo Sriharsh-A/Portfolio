@@ -1,7 +1,6 @@
-/* --- 1. CONTAINER & BACKGROUND --- */
 .skills-container {
   height: 100vh;
-  background-color: #000000; /* Plain Dark Background */
+  background-color: #000000;
   color: white;
   position: relative;
   overflow: hidden;
@@ -11,7 +10,6 @@
   perspective: 1000px;
 }
 
-/* REMOVED THE GRID TEXTURE */
 .skills-bg-grid {
   display: none; 
 }
@@ -25,7 +23,6 @@
   letter-spacing: 2px;
 }
 
-/* --- 2. THE CATEGORY CARDS (Cyber-Industrial Style) --- */
 .cards-wrapper {
   display: flex;
   gap: 60px;
@@ -34,7 +31,7 @@
 }
 
 .cards-wrapper.dimmed {
-  opacity: 0; /* Fully hide when skills active */
+  opacity: 0;
   pointer-events: none;
   transform: scale(0.9);
 }
@@ -42,7 +39,7 @@
 .category-card {
   width: 300px;
   height: 420px;
-  background: rgba(20, 20, 20, 0.6); /* Dark Glass */
+  background: rgba(20, 20, 20, 0.6);
   backdrop-filter: blur(10px);
   border: 1px solid #333;
   border-radius: 20px;
@@ -57,7 +54,6 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* Decoration inside card */
 .card-index {
   position: absolute;
   top: 20px;
@@ -103,10 +99,9 @@
   transition: all 0.3s;
 }
 
-/* --- HOVER EFFECTS --- */
 .category-card:hover {
   transform: translateY(-10px);
-  border-color: #dfff00; /* NEON GREEN BORDER */
+  border-color: #dfff00;
   box-shadow: 0 0 30px rgba(223, 255, 0, 0.15);
 }
 
@@ -126,7 +121,6 @@
   box-shadow: 0 0 15px #dfff00;
 }
 
-/* --- 3. THE FLOATING SKILLS (Tech Chips) --- */
 .scatter-area {
   position: absolute;
   top: 0;
@@ -142,26 +136,18 @@
 .floating-skill {
   position: absolute; 
   padding: 12px 25px;
-  
-  /* Dark Tech Style */
   background: rgba(10, 10, 10, 0.9);
   border: 1px solid #333;
   color: #ccc;
-  
   font-family: 'Courier New', monospace;
   font-weight: bold;
   font-size: 1rem;
   letter-spacing: 1px;
   text-transform: uppercase;
-  
   backdrop-filter: blur(5px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
   cursor: grab;
-  
-  /* Cool "Cut Corner" shape */
   clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
-  
-  /* Ensure Skills stay below the hover state of the button but above background */
   z-index: 20; 
 }
 
@@ -179,7 +165,6 @@
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-/* HOVER STATE FOR SKILLS */
 .floating-skill:hover {
   border-color: #dfff00;
   color: white;
@@ -192,7 +177,6 @@
   box-shadow: 0 0 8px #dfff00;
 }
 
-/* --- 4. CLOSE BUTTON --- */
 .close-btn {
   position: absolute; 
   width: auto; 
@@ -215,7 +199,6 @@
   box-shadow: 0 0 20px #dfff00;
 }
 
-/* --- 5. MOBILE RESPONSIVENESS --- */
 @media (max-width: 640px) {
   .cards-wrapper {
     flex-direction: column;

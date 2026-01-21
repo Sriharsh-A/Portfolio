@@ -1,14 +1,11 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'; 
 import Navbar from '../components/Navbar'; 
-import Photography from './Photography'; 
 import './About.css';
 
-// 1. FIXED PATH: Go up one level (../) to find assets
 import imgme from '../assets/me.jpeg';
 
 const About = () => {
-  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -18,20 +15,15 @@ const About = () => {
       <Navbar />
       
       <div className="about-scroll-layout">
-        
         <div className="back-button-container">
-            <Link to="/" className="back-link">
-                &larr; BACK TO HOME
-            </Link>
+          <Link to="/" className="back-link">
+            &larr; BACK TO HOME
+          </Link>
         </div>
 
-        {/* SECTION 1: BIO & INFO */}
         <div className="about-container">
-          
           <div className="about-image-wrapper">
             <div className="image-frame">
-              
-              {/* 2. FIXED SYNTAX: No brackets [] */}
               <img 
                 src={imgme} 
                 alt="Profile" 
@@ -44,12 +36,12 @@ const About = () => {
 
           <div className="about-content">
             <h1 className="about-title">WHO AM <span className="highlight">I?</span></h1>
-            <h3 className="about-role">// CREATIVE DEVELOPER & DESIGNER</h3>
+            <h3 className="about-role">CREATIVE DEVELOPER & DESIGNER</h3>
             
             <div className="about-bio">
               <p>
-               I’m <strong>Sriharsh Akkala</strong>, a 20-year-old founder, developer, and visual creator driven by
-               the idea that creativity works best when disciplines collide.
+                I’m <strong>Sriharsh Akkala</strong>, a 20-year-old founder, developer, and visual creator driven by
+                the idea that creativity works best when disciplines collide.
               </p>
               <p>
                 At 20, I founded a fashion brand, translating emotion, identity, and storytelling into wearable design.
@@ -59,22 +51,20 @@ const About = () => {
               <p>
                 Beyond code and clothing, I work through photography and graphic design,
                 using visuals as a language to capture mood, movement, and meaning.
-                 <strong> Whether I’m designing a streetwear drop, developing a React app, or framing a shot,
-                my focus stays the same: clarity, impact, and authenticity.</strong> I don’t believe in choosing between art and engineering.
+                <strong>
+                  Whether I’m designing a streetwear drop, developing a React app, or framing a shot,
+                  my focus stays the same: clarity, impact, and authenticity.
+                </strong>
+                I don’t believe in choosing between art and engineering.
                 I build at the intersection where ideas turn real, and concepts turn tangible.
               </p>
             </div>
 
             <div className="about-actions">
               <button className="btn-resume">Download Resume</button>
-              
-              
             </div>
           </div>
         </div>
-
-        
-
       </div>
     </>
   );

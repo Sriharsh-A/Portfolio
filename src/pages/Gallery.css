@@ -1,4 +1,3 @@
-/* --- MAIN PAGE LAYOUT (Full Screen) --- */
 .gallery-full-page {
   position: relative;
   width: 100%;
@@ -11,27 +10,25 @@
   align-items: center;
 }
 
-/* --- MAIN TITLE (Restored) --- */
 .gallery-main-title {
   position: absolute;
-  font-size: 8rem; /* Big and bold */
+  font-size: 8rem;
   font-weight: 900;
-  color: #1a1a1a; /* Dark grey so it sits in the background */
+  color: #1a1a1a;
   letter-spacing: 10px;
   user-select: none;
-  pointer-events: none; /* Let mouse pass through */
-  z-index: 1; /* Sits behind the images */
+  pointer-events: none;
+  z-index: 1;
   text-transform: uppercase;
 }
 
-/* --- TRAIL IMAGES --- */
 .trail-img {
   position: absolute;
   width: 180px; 
   height: auto;
   border-radius: 8px;
   pointer-events: none; 
-  z-index: 20; /* Sits ON TOP of the text */
+  z-index: 20;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   animation: popIn 0.8s ease-out forwards;
 }
@@ -41,7 +38,6 @@
   100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 
-/* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
   .gallery-main-title {
     font-size: 3rem;

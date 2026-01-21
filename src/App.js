@@ -35,7 +35,6 @@ function App() {
     <Router>
       <ScrollHandler />
 
-      {/* --- NEW: GLOBAL GRUNGE TEXTURE OVERLAY --- */}
       <div className="grunge-overlay"></div>
 
       <div className="app-container">

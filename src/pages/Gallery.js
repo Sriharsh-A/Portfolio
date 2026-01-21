@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import './Gallery.css';
 
-// --- 1. IMPORT YOUR LOCAL PHOTOS ---
 import imgmonster from '../assets/monster.jpeg';
 import imgCC from '../assets/cc.jpg';
 import imgHS from '../assets/Hillscape.jpg';
@@ -9,7 +8,6 @@ import imgdog from '../assets/dog.jpeg';
 import imglight from '../assets/light.jpeg';
 import imgmdsh from '../assets/mdsh.jpeg';
 
-// --- 2. DEFINE IMAGE ARRAY ---
 const photographyImages = [
   imgmonster,
   imgCC,
@@ -53,11 +51,8 @@ const Gallery = () => {
 
   return (
     <div className="gallery-full-page" onMouseMove={handleMouseMove}>
-      
-      {/* --- RE-ADDED HEADING --- */}
       <h1 className="gallery-main-title">GALLERY</h1>
 
-      {/* TRAIL IMAGES */}
       {trail.map((img) => (
         <img
           key={img.id}
@@ -71,7 +66,6 @@ const Gallery = () => {
           }}
         />
       ))}
-      
     </div>
   );
 };

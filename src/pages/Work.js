@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Work.css';
 
-// Instagram Icon Component
 const InstagramIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -78,18 +77,13 @@ const Work = () => {
         ))}
       </div>
 
-     
       {selectedProject && (
         <div className="modal-overlay" onClick={() => setSelectedProject(null)}>
-          
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-
             <div className="modal-header">
-              {/* TITLE & ICON WRAPPER */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <h2>{selectedProject.title}</h2>
                 
-                {/* Instagram Icon - Only shows if link exists */}
                 {selectedProject.instagram && (
                   <a 
                     href={selectedProject.instagram} 
@@ -149,7 +143,6 @@ const Work = () => {
                  </a>
                )}
             </div>
-
           </div>
         </div>
       )}

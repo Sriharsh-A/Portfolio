@@ -1,10 +1,8 @@
-// src/data/experienceData.js
 import design1 from '../assets/logoblack.png'; 
 import design2 from '../assets/wordmarkblack.png';
 import design3 from '../assets/zen1.jpeg';
 import design4 from '../assets/zen2.jpeg';
 import design5 from '../assets/zen3.jpeg';
-
 
 export const experienceData = [
   {
@@ -34,7 +32,6 @@ export const experienceData = [
     link: "#",
     images: [] 
   },
-  // Add more items here to see them on the "See More" page...
   {
     id: 4,
     role: "Freelance Artist",

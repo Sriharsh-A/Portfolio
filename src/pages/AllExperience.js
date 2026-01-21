@@ -6,26 +6,29 @@ import { experienceData } from '../data/experienceData';
 const AllExperience = () => {
   const [selectedExp, setSelectedExp] = useState(null);
 
-  // Scroll to top when page opens
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="experience-main" style={{ minHeight: '100vh', height: 'auto', padding: '100px 50px', justifyContent: 'flex-start' }}>
-      
-      {/* Back Button */}
+    <div
+      className="experience-main"
+      style={{
+        minHeight: '100vh',
+        height: 'auto',
+        padding: '100px 50px',
+        justifyContent: 'flex-start'
+      }}
+    >
       <div style={{ width: '100%', maxWidth: '1200px', marginBottom: '40px' }}>
         <Link to="/" className="back-link">&larr; Back to Home</Link>
       </div>
       
       <h1 className="section-title">All Experience</h1>
       
-      {/* GRID LAYOUT CONTAINER */}
       <div className="xp-grid-container">
         {experienceData.map((item) => (
           <div 
-            // We add 'xp-grid-card' class to override the deck styling
             className="xp-card xp-grid-card" 
             key={item.id} 
             onClick={() => setSelectedExp(item)}
@@ -48,7 +51,6 @@ const AllExperience = () => {
         ))}
       </div>
 
-      {/* REUSED MODAL LOGIC */}
       {selectedExp && (
         <div className="xp-modal-overlay" onClick={() => setSelectedExp(null)}>
           <div className="xp-modal-content" onClick={(e) => e.stopPropagation()}>
@@ -70,7 +72,12 @@ const AllExperience = () => {
             <p className="xp-full-desc">{selectedExp.description}</p>
             {selectedExp.link && (
               <div className="xp-modal-actions">
-                <a href={selectedExp.link} target="_blank" rel="noopener noreferrer" className="xp-view-btn">
+                <a
+                  href={selectedExp.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="xp-view-btn"
+                >
                   View Work &rarr;
                 </a>
               </div>

@@ -1,7 +1,6 @@
-/* --- GLOBAL RESET & SMOOTH SCROLL --- */
 html {
   scroll-behavior: smooth;
-  box-sizing: border-box; /* Helps with sizing logic */
+  box-sizing: border-box;
 }
 
 *, *:before, *:after {
@@ -11,8 +10,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevents unwanted horizontal scrolling on mobile */
-  -webkit-font-smoothing: antialiased; /* Sharper text on Apple devices */
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 .App {
@@ -20,7 +19,6 @@ body {
   width: 100%;
 }
 
-/* --- HEADER SECTION --- */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -28,73 +26,62 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-  /* Responsive Font Size: clamps between 16px and a calculated viewport size */
   font-size: calc(16px + 2vmin);
   color: white;
-  
-  /* Add padding so content doesn't touch screen edges on mobile */
   padding: 20px;
 }
 
-/* --- LOGO RESPONSIVENESS --- */
 .App-logo {
-  /* Dynamic height: 40% of viewport min dimension, but capped */
   height: 40vmin;
-  max-width: 100%; /* Ensures it never overflows screen width */
+  max-width: 100%;
   pointer-events: none;
-  transition: height 0.3s ease; /* Smooth resize if orientation changes */
+  transition: height 0.3s ease;
 }
 
-/* Animation preferences */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
-/* --- LINK STYLES --- */
 .App-link {
   color: #61dafb;
   text-decoration: none;
-  
-  /* Increase touch target size for mobile users */
-  padding: 10px; 
+  padding: 10px;
   display: inline-block;
 }
 
-/* --- DEVICE SPECIFIC BREAKPOINTS --- */
-
-/* 1. Mobile Devices (Portrait phones, less than 600px) */
 @media (max-width: 640px) {
   html, body {
     overflow-x: hidden;
     width: 100%;
   }
+
   .App-header {
-    font-size: calc(14px + 3vmin); /* Slightly larger base text for readability */
+    font-size: calc(14px + 3vmin);
     padding: 15px;
   }
+
   section {
-    padding: 50px 15px; /* Tighter padding for small phones */
+    padding: 50px 15px;
     min-height: auto;
   }
+
   h1 { font-size: 2.2rem !important; }
   h2 { font-size: 1.8rem !important; }
   p { font-size: 0.95rem !important; }
+
   .App-logo {
-    height: 35vmin; /* Smaller logo on phones to save space */
+    height: 35vmin;
   }
 }
 
-/* 2. Tablets (iPads, larger phones, 600px - 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
   .App-header {
     padding: 30px;
   }
 }
 
-/* Animation Keyframes */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

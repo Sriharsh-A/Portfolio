@@ -1,8 +1,8 @@
-/* --- EXISTING GRID STYLES --- */
 .work-main {
   padding: 100px 50px;
   background-color: #000000;
 }
+
 .section-title {
   text-align: center;
   font-size: 3rem;
@@ -11,6 +11,7 @@
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
 .work-grid {
   display: grid;
   grid-template-columns: 1fr 1fr; 
@@ -18,11 +19,11 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+
 @media (max-width: 768px) {
   .work-grid { grid-template-columns: 1fr; }
 }
 
-/* --- CARD STYLES --- */
 .normal-card {
   background-color: #111;
   border: 1px solid #333;
@@ -33,7 +34,7 @@
   justify-content: space-between;
   min-height: 350px;
   transition: transform 0.3s ease, border-color 0.3s ease;
-  cursor: pointer; /* Makes it look clickable */
+  cursor: pointer;
 }
 
 .normal-card:hover {
@@ -60,34 +61,35 @@
   margin: 0 0 20px 0;
   color: white;
 }
+
 .normal-card p {
   color: #ccc;
   line-height: 1.6;
   margin-bottom: 40px;
   flex-grow: 1;
 }
+
 .card-link {
   color: white;
   font-weight: bold;
   transition: color 0.3s;
 }
-.normal-card:hover { color: #dfff00; box-shadow: 10px 10px 50px rgba(223, 255, 0, 0.15);}
+
+.normal-card:hover {
+  color: #dfff00;
+  box-shadow: 10px 10px 50px rgba(223, 255, 0, 0.15);
+}
+
 .card-link:hover {
   color:#dfff00
 }
 
-
-/* --- NEW MODAL STYLES (The Popup) --- */
-/* --- NEW MODAL STYLES (The Popup) --- */
-
-/* 1. The Backdrop */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* Make the outer backdrop slightly lighter so the glass effect pops */
   background-color: rgba(0, 0, 0, 0.488); 
   z-index: 2000;
   display: flex;
@@ -95,35 +97,21 @@
   align-items: center;
   padding: 20px;
   animation: fadeIn 0.3s ease;
-  /* Optional: Add a slight blur to the WHOLE background for extra focus */
   backdrop-filter: blur(5px);
 }
 
-/* 2. The Glassmorphism Card */
 .modal-content {
-  /* --- GLASSMORPHISM MAGIC --- */
-  /* Semi-transparent dark background */
   background-color: rgba(0, 0, 0, 0.332); 
-  
-  /* The blur effect applied to everything BEHIND the card */
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%); /* Safari support */
-  
-  /* A subtle border that blends in */
-  border: 1px solid rgba(223, 255, 0, 0.3); /* Neon with transparency */
-  
-  /* Deep shadow to lift it off the background */
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(223, 255, 0, 0.3);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-  
-  /* --- Layout Styles (Same as before) --- */
   width: 800px;
   max-width: 100%;
   padding: 50px;
   border-radius: 30px;
   position: relative;
 }
-
-
 
 .close-btn {
   position: absolute;
@@ -135,6 +123,7 @@
   font-size: 2.5rem;
   cursor: pointer;
 }
+
 .close-btn:hover { color: #dfff00; }
 
 .modal-header h2 {
@@ -142,6 +131,7 @@
   color: white;
   margin-bottom: 10px;
 }
+
 .category-tag {
   color: #dfff00;
   font-size: 1.2rem;
@@ -163,12 +153,14 @@
   text-transform: uppercase;
   margin-bottom: 15px;
 }
+
 .tools-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 40px;
 }
+
 .tool-badge {
   background-color: #222;
   color: white;
@@ -179,29 +171,25 @@
 }
 
 .view-project-btn {
- 
   color:#dfff00;
-  
   font-weight: bold;
   text-decoration: none;
   font-size: 1.2rem;
 }
+
 .view-project-btn:hover {
   color:#ffffff;
 }
-/* --- INSTAGRAM BUTTON (Top Right Corner) --- */
+
 .instagram-btn {
   position: absolute;
   top: 30px;
-  right: 80px; /* Positioned to the left of the close button */
-  
+  right: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* Space between icon and text */
-  
+  gap: 8px;
   color: #dfff00;
-  
   padding: 8px 20px;
   border-radius: 50px;
   font-size: 0.9rem;
@@ -212,11 +200,9 @@
 }
 
 .instagram-btn:hover {
-  
-  color:#ffffff; /* Text turns black on hover */
-  
+  color:#ffffff;
 }
-/* Simple Fade In Animation */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }

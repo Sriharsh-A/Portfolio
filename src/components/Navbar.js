@@ -31,15 +31,12 @@ const Navbar = () => {
       </div>
       
       <ul className="nav-links">
-        {/* 1. Link to separate About Page */}
         <li><Link to="/about">About</Link></li>
 
-        {/* 2. Scroll to Sections */}
         <li><a href="/" onClick={(e) => handleNavigation(e, 'work')}>Projects</a></li>
         <li><a href="/" onClick={(e) => handleNavigation(e, 'experience')}>Experience</a></li>
         <li><a href="/" onClick={(e) => handleNavigation(e, 'skills')}>Skills</a></li>
         
-        {/* 3. New Gallery Link */}
         <li><a href="/" onClick={(e) => handleNavigation(e, 'gallery')}>Gallery</a></li>
 
         <li><a href="/" onClick={(e) => handleNavigation(e, 'contact')}>Contact</a></li>

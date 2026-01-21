@@ -1,12 +1,8 @@
-/* --- PAGE LAYOUT (Updated for Scrolling) --- */
-/* ... existing .about-scroll-layout ... */
-
-/* --- BACK BUTTON STYLING --- */
 .back-button-container {
   width: 100%;
-  max-width: 1100px; /* Matches your main container width */
-  padding: 0 20px;   /* Matches container padding */
-  margin-bottom: 20px; /* Space between button and content */
+  max-width: 1100px;
+  padding: 0 20px;
+  margin-bottom: 20px;
 }
 
 .back-link {
@@ -17,23 +13,20 @@
   font-size: 0.9rem;
   letter-spacing: 1px;
   padding: 10px 20px;
-  border-radius: 20px; /* Rounded pill shape */
+  border-radius: 20px;
   transition: all 0.3s ease;
 }
 
 .back-link:hover {
-  
   color: #dfff00;
-  transform: translateX(-5px); /* Subtle slide animation */
+  transform: translateX(-5px);
 }
 
-/* ... rest of your CSS ... */
 .about-scroll-layout {
   background-color: #050505;
   min-height: 100vh;
-  padding-top: 120px; /* Clear Navbar */
+  padding-top: 120px;
   padding-bottom: 50px;
-  /* Allow natural scrolling flow */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,18 +39,14 @@
   align-items: center;
   gap: 80px;
   padding: 0 20px;
-  /* Margin bottom separates Bio from Photography */
   margin-bottom: 150px; 
 }
 
-/* --- WRAPPER FOR PHOTOGRAPHY --- */
 .about-photography-wrapper {
   width: 100%;
-  /* Optional: Add a divider or background change here if you want */
   border-top: 1px solid #111;
 }
 
-/* --- LEFT: IMAGE STYLING --- */
 .about-image-wrapper {
   flex: 1;
   display: flex;
@@ -81,7 +70,6 @@
   transition: all 0.5s ease;
 }
 
-/* Corner Decorations */
 .corner-decor {
   position: absolute;
   width: 30px;
@@ -90,10 +78,20 @@
   transition: all 0.3s ease;
 }
 
-.top-left { top: -2px; left: -2px; border-right: none; border-bottom: none; }
-.bottom-right { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+.top-left {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
 
-/* HOVER EFFECTS */
+.bottom-right {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
 .image-frame:hover {
   transform: translateY(-10px);
   border-color: #555;
@@ -109,7 +107,6 @@
   opacity: 0.5;
 }
 
-/* --- RIGHT: TEXT CONTENT --- */
 .about-content {
   flex: 1.2;
 }
@@ -123,7 +120,9 @@
   color: white;
 }
 
-.highlight { color: #dfff00; }
+.highlight {
+  color: #dfff00;
+}
 
 .about-role {
   font-family: monospace;
@@ -140,9 +139,10 @@
   margin-bottom: 20px;
 }
 
-.about-bio strong { color: white; }
+.about-bio strong {
+  color: white;
+}
 
-/* --- BUTTON --- */
 .btn-resume {
   padding: 15px 40px;
   background: transparent;
@@ -160,7 +160,6 @@
   box-shadow: 0 0 20px #dfff00;
 }
 
-/* --- MOBILE RESPONSIVENESS (640px) --- */
 @media (max-width: 640px) {
   .about-scroll-layout {
     padding-top: 100px;
@@ -169,7 +168,7 @@
   .about-container {
     flex-direction: column;
     gap: 40px;
-    margin-bottom: 80px; /* Less gap on mobile */
+    margin-bottom: 80px;
   }
 
   .image-frame {
@@ -189,3 +188,33 @@
     font-size: 0.9rem;
   }
 }
+
+@media (max-width: 640px) {
+  .about-scroll-layout {
+    padding-top: 100px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+
+  .image-frame {
+    width: 280px;
+    height: 350px;
+  }
+
+  .about-content {
+    text-align: center;
+  }
+
+  .about-title {
+    font-size: 2.5rem;
+  }
+  
+  .about-role {
+    font-size: 0.9rem;
+  }
+}
+
