@@ -12,6 +12,15 @@ const InstagramIcon = () => (
 const workData = [
   {
     id: 1,
+    title: "Inside.",
+    category: "Fitness",
+    year: "Feb 2026 - Present",
+    desc: "A minimalist, AI-powered fitness system designed for progressive overload. Features include automated 6-day PPL workout generation, intelligent calorie targeting based on biometrics, and a GitHub-style consistency heatmap to visualize discipline. Built with a high-contrast aesthetic for zero-friction tracking.",
+    tools: ["React", "Node", "Supabase", "Tailwind"],
+    link: "#" 
+  },
+  {
+    id: 2,
     title: "CoLearn",
     category: "Collaborative Learning",
     year: "Dec 2025 - Present",
@@ -20,7 +29,7 @@ const workData = [
     link: "#" 
   },
   {
-    id: 2,
+    id: 3,
     title: "IMGE",
     category: "Shopify",
     year: "Sep 2025 - Present",
@@ -30,7 +39,7 @@ const workData = [
     instagram: "https://www.instagram.com/wearimge.in" 
   },
   {
-    id: 3,
+    id: 4,
     title: "Phishing Detection",
     category: "Real-time Data",
     year: "Jan 2025 - June 2025",
@@ -39,7 +48,7 @@ const workData = [
     link: "https://github.com/Sriharsh-A/phising-detection"
   },
   {
-    id: 4,
+    id: 5,
     title: "Feelit",
     category: "Machine Learning",
     year: "Jan 2024 - June 2024",
@@ -121,7 +130,7 @@ const Work = () => {
             </div>
 
            <div className="modal-actions">
-               {selectedProject.id === 1 ? (
+               {[1, 2].includes(selectedProject.id) ? (
                  <span 
                    className="view-project-btn" 
                    style={{ 
